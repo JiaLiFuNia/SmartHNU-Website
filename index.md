@@ -1,0 +1,29 @@
+---
+# https://vitepress.dev/reference/default-theme-home-page
+layout: home
+
+hero:
+  name: "师韵"
+  text: "SmartHNU"
+  tagline: 一款河南师范大学新闻阅览与第三方教务app
+  image: /SmartHNU.svg
+  actions:
+    - theme: brand
+      text: 下载
+      link: /download
+    - theme: alt
+      text: GitHub
+      link: "https://github.com/JiaLiFuNia/SmartHNU"
+    - theme: alt
+      text: 使用指南
+      link: /function
+
+features:
+  - title: 聚合
+    details: 聚合了校园新闻、教务信息、课程表、第二课堂等功能。
+  - title: 便捷
+    details: 不需要重复登录，轻轻一点即可查询。
+  - title: 开源
+    details: 所有代码都在 GitHub 上开源。
+---
+
