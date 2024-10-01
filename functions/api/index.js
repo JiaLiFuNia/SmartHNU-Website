@@ -1,3 +1,6 @@
 export function onRequest(context) {
-    return new Response({name:"SmartHNU",version:"release-2.1.8.1"}, {status: 200})
-  }
+  const jsonResponse = Response.json(
+    { nmae: "SmartHNU", version: "Release-2.1.8.1" },
+  );
+  logResponse(jsonResponse);
+}
