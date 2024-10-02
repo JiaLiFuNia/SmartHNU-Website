@@ -1,14 +1,14 @@
 <script setup>
 import { ref, onMounted } from 'vue';
+import { marked } from 'marked'; // 引入 marked 解析器
 
 // 定义响应式变量来存储 GitHub release 数据
 const releaseData = ref({
   name: 'loading...',
   published_at: 'loading...',
-  body: 'loadind...'
+  body: 'loading...'
 });
 
-// 使用 onMounted 在页面加载时执行 GET 请求
 onMounted(async () => {
   try {
     const response = await fetch('https://api.github.com/repos/JiaLiFuNia/SmartHNU/releases/latest');
@@ -17,11 +17,11 @@ onMounted(async () => {
     }
     const data = await response.json();
 
-    // 更新响应式变量中的数据
+    // 使用 marked 将 Markdown 转换为 HTML
     releaseData.value = {
       name: data.tag_name,
       published_at: data.published_at,
-      body: data.body
+      body: marked(data.body) // 将 Markdown 转换为 HTML
     };
   } catch (error) {
     console.error('Error fetching release data:', error);
@@ -44,4 +44,4 @@ onMounted(async () => {
 
 ### 更新内容：
 
-{{ releaseData.body }}
+<div v-html="releaseData.body"></div>
