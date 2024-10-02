@@ -44,4 +44,4 @@ onMounted(async () => {
 
 ### 更新内容：
 
-<pre>{{ releaseData.body }}</pre>
+{{ releaseData.body }}
