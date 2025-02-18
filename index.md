@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "师韵"
   text: "SmartHNU"
-  tagline: 一款河南师范大学新闻阅览与第三方教务app
+  tagline: 师韵 v3.0 版正在来袭...
   image: /SmartHNU.svg
   actions:
     - theme: brand
