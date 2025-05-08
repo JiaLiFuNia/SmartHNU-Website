@@ -9,12 +9,16 @@ export async function onRequestPost(context) {
     const latestVersion = "3.0.9"
     const latestVersionCode = 202505071
     const data = {
-        "version": latestVersion,
-        "versionCode": latestVersionCode,
-        "isNeedUpdate": currentVersionCode < latestVersionCode,
-        "update": {
-            "url": "",
-            "content": "### 更新内容\n- 修复已知问题\n- 优化用户体验\n- 提升性能",
+        "code": 200,
+        "message": "success",
+        "data": {
+            "versionName": latestVersion,
+            "versionCode": latestVersionCode,
+            "isNeedUpdate": currentVersionCode < latestVersionCode,
+            "update": {
+                "url": "",
+                "content": "### 更新内容\n- 修复已知问题\n- 优化用户体验\n- 提升性能",
+            }
         }
     }
     return new Response(JSON.stringify(data), {

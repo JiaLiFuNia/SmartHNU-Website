@@ -41,7 +41,12 @@ export function onRequest(context) {
         "type": "URL"
       }
     ];
-    return new Response(JSON.stringify(notices), {
+    const data = {
+        "code": 200,
+        "message": "success",
+        "data": notices
+    }
+    return new Response(JSON.stringify(data), {
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'

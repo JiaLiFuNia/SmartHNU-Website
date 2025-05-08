@@ -48,8 +48,13 @@ export async function onRequestGet(context) {
         "name": weekDayName,
         "weekDay": weekDay === 0 ? 7 : weekDay
     };
+    const data = {
+        "code": 200,
+        "message": "success",
+        "data": result
+    }
     
-    return new Response(JSON.stringify(result), {
+    return new Response(JSON.stringify(data), {
         headers: { "Content-Type": "application/json" }
     });
 }
