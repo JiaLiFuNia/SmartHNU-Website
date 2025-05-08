@@ -1,55 +1,59 @@
 export function onRequest(context) {
     const notices = [
-      {
-        "id": 2025050401,
-        "time": "2025-5-4 10:00",
-        "title": "软件通知",
-        "content": "师韵（SmartHNU）v3.0 即将来袭",
-        "action": null,
-        "type": "COMMON"
-      },
-      {
-        "id": 2025021401,
-        "time": "2025-2-14 22:28",
-        "title": "新增页面",
-        "content": "新增 课程成绩",
-        "action": "grade",
-        "type": "SCREEN"
-      },
-      {
-        "id": 2025021201,
-        "time": "2025-2-12 17:45",
-        "title": "软件通知",
-        "content": "优化 设置页面",
-        "action": "setting",
-        "type": "SCREEN"
-      },
-      {
-        "id": 2025012301,
-        "time": "2025-1-23 12:14",
-        "title": "软件通知",
-        "content": "师韵——集教务与新闻于一体的校园助手。",
-        "action": null,
-        "type": "COMMON"
-      },
-      {
-        "id": 2025012302,
-        "time": "2025-1-23 12:15",
-        "title": "校园通知",
-        "content": "河南师范大学",
-        "action": "https://www.htu.edu.cn/",
-        "type": "URL"
-      }
+        {
+            "id": 2025050401,
+            "time": "2025-5-4 10:00",
+            "title": "软件通知",
+            "content": "师韵（SmartHNU）v3.0 即将来袭",
+            "action": null,
+            "type": "COMMON"
+        },
+        {
+            "id": 2025021401,
+            "time": "2025-2-14 22:28",
+            "title": "新增页面",
+            "content": "新增 课程成绩",
+            "action": "grade",
+            "type": "SCREEN"
+        },
+        {
+            "id": 2025021201,
+            "time": "2025-2-12 17:45",
+            "title": "软件通知",
+            "content": "优化 设置页面",
+            "action": "setting",
+            "type": "SCREEN"
+        },
+        {
+            "id": 2025012301,
+            "time": "2025-1-23 12:14",
+            "title": "软件通知",
+            "content": "师韵——集教务与新闻于一体的校园助手。",
+            "action": null,
+            "type": "COMMON"
+        },
+        {
+            "id": 2025012302,
+            "time": "2025-1-23 12:15",
+            "title": "校园通知",
+            "content": "河南师范大学",
+            "action": "https://www.htu.edu.cn/",
+            "type": "URL"
+        }
     ];
     const data = {
         "code": 200,
         "message": "success",
-        "data": notices
+        "data": notices,
+        "airConditionCookie": {
+            "shiroJID": "295444bf-c1cf-458b-b041-b6cc36f07461",
+            "ymId": "2209553875734609932"
+        }
     }
     return new Response(JSON.stringify(data), {
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }
     });
-  }
+}
