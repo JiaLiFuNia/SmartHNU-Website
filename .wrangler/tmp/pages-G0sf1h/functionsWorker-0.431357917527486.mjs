@@ -2,8 +2,9 @@ var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 
 // feedback.ts
-async function onRequestPost(context, env) {
+async function onRequestPost(context) {
   const { type, function_model, message, email, android_version, system, device, versionCode } = await context.request.json();
+  const api_key = context.env.RESENT;
   if (!message) {
     return new Response(JSON.stringify({ success: false, message: "\u53CD\u9988\u4E0D\u80FD\u4E3A\u7A7A" }), {
       status: 400,
@@ -13,7 +14,7 @@ async function onRequestPost(context, env) {
   const result = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${env.RESENT}`,
+      "Authorization": `Bearer ${api_key}`,
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
@@ -116,7 +117,7 @@ async function onRequestPost2(context) {
   }
   const latestVersion = "3.0.9";
   const latestVersionCode = 202505071;
-  const isForceUpdate = true;
+  const isForceUpdate = false;
   const data = {
     "code": 200,
     "message": "success",
@@ -721,7 +722,7 @@ var jsonError = /* @__PURE__ */ __name(async (request, env, _ctx, middlewareCtx)
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
 
-// ../.wrangler/tmp/bundle-EA0wYw/middleware-insertion-facade.js
+// ../.wrangler/tmp/bundle-ZNY7yM/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -753,7 +754,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 
-// ../.wrangler/tmp/bundle-EA0wYw/middleware-loader.entry.ts
+// ../.wrangler/tmp/bundle-ZNY7yM/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class ___Facade_ScheduledController__ {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;

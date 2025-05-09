@@ -1,6 +1,6 @@
-export async function onRequestPost(context, env) {
+export async function onRequestPost(context) {
     const { type, function_model, message, email, android_version, system, device, versionCode } = await context.request.json();
-
+    const api_key = context.env.RESENT;
     if (!message) {
         return new Response(JSON.stringify({ success: false, message: "反馈不能为空" }), {
             status: 400,
@@ -11,7 +11,7 @@ export async function onRequestPost(context, env) {
     const result = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
-            "Authorization": `Bearer ${env.RESENT}`,
+            "Authorization": `Bearer ${api_key}`,
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
