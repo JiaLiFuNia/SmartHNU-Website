@@ -1,5 +1,5 @@
 export async function onRequestPost(context) {
-    const { type, function_model, message, email, android_version, system, device, versionCode } = await context.request.json();
+    const { type, functionModel, message, email, androidVersion, system, device, versionCode } = await context.request.json();
     const api_key = context.env.RESENT;
     if (!message) {
         return new Response(JSON.stringify({ success: false, message: "反馈不能为空" }), {
@@ -18,9 +18,9 @@ export async function onRequestPost(context) {
             from: "SmartHNU_Feedback@resend.dev",
             to: "xbh0704@outlook.com",
             subject: type,
-            html: `<p><strong>功能模块:</strong> ${function_model}</p>
+            html: `<p><strong>功能模块:</strong> ${functionModel}</p>
                <p><strong>邮箱:</strong> ${email}</p>
-                <p><strong>设备:</strong> ${android_version} ${system} ${device}</p>
+                <p><strong>设备:</strong> ${androidVersion} ${system} ${device}</p>
                 <p><strong>软件版本:</strong> ${versionCode}</p>
                <p><strong>内容:</strong><br>${message}</p>`
         })
