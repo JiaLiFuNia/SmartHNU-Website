@@ -8,7 +8,7 @@ export async function onRequestPost(context) {
 
     const latestVersion = "3.0.9"
     const latestVersionCode = 202505071
-    const isForceUpdate = true // 是否强制更新
+    const isForceUpdate = false // 是否强制更新
     const data = {
         "code": 200,
         "message": "success",
