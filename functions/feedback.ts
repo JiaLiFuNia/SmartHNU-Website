@@ -20,7 +20,7 @@ export async function onRequestPost(context) {
             subject: type,
             html: `<p><strong>功能模块:</strong> ${functionModel}</p>
                <p><strong>邮箱:</strong> ${email}</p>
-                <p><strong>设备:</strong> ${androidVersion} ${system} ${device}</p>
+                <p><strong>设备:</strong> Android ${androidVersion}；${system}；${device}</p>
                 <p><strong>软件版本:</strong> ${versionCode}</p>
                <p><strong>内容:</strong><br>${message}</p>`
         })
@@ -28,11 +28,11 @@ export async function onRequestPost(context) {
     console.log(result);
 
     if (result.ok) {
-        return new Response(JSON.stringify({ success: true, message: "发送成功" }), {
+        return new Response(JSON.stringify({ success: true, message: "提交成功" }), {
             headers: { "Content-Type": "application/json" }
         });
     } else {
-        return new Response(JSON.stringify({ success: false, message: "发送失败，请稍后再试" }), {
+        return new Response(JSON.stringify({ success: false, message: "提交失败，请稍后再试" }), {
             status: 500,
             headers: { "Content-Type": "application/json" }
         });
