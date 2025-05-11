@@ -19,7 +19,7 @@ export async function onRequestPost(context) {
             "isForceUpdate": isForceUpdate,
             "update": {
                 "url": "",
-                "content": "更新内容\n-新增 反馈页面\n-新增 节假日信息获取\n- 新增 忘记密码提示弹窗\n- 新增 清除 Cookie 和 WebView 数据\n- 优化 更新检查体验",
+                "content": "更新内容\n- 新增 反馈页面\n- 新增 节假日信息获取\n- 新增 忘记密码提示弹窗\n- 新增 清除 Cookie 和 WebView 数据\n- 优化 更新检查体验",
             }
         }
     }

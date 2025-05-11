@@ -1,6 +1,14 @@
 export function onRequest(context) {
     const notices = [
         {
+            "id": 2025051101,
+            "time": "2025-5-11 12:00",
+            "title": "新增页面",
+            "content": "新增 反馈页面\n你可以在这里提交你的意见和建议",
+            "action": "feedback",
+            "type": "SCREEN"
+        },
+        {
             "id": 2025050401,
             "time": "2025-5-4 10:00",
             "title": "软件通知",
