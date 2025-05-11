@@ -32,10 +32,10 @@ onMounted(async () => {
 # 下载<Badge type="tip">{{ releaseData.name }}</Badge>
 
 * [GitHub Release](https://github.com/JiaLiFuNia/SmartHNU/releases/latest)
-* [123云盘](https://www.123pan.com/s/uyHuVv-dTdjH)（推荐使用）
+* [123云盘](https://www.123pan.com/s/uyHuVv-dTdjH)
 
 ## 意见反馈
-邮件地址：<smarthnu@proton.me>
+邮件地址：<xbh0704@outlook.com>
 
 ## 更新日志
 **版本号：{{ releaseData.name }}**

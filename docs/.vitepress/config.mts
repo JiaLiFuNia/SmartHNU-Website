@@ -32,8 +32,8 @@ export default defineConfig({
       label: '目录'
     },
     footer: {
-      message: 'MIT Licensed',
-      copyright: 'Copyright © 2024 JiaLiFuNia & Xhand'
+      message: ' Apache-2.0 Licensed',
+      copyright: 'Copyright © 2024-2025 JiaLiFuNia & Xhand'
     },
     lastUpdated: {
       text: '上次更新',

@@ -4,8 +4,7 @@
 
 ::: tip 新闻数据
 * 河南师范大学官网 [https://www.htu.edu.cn](https://www.htu.edu.cn) 
-
-* 河南师范大学教务处 [https://www.htu.edu.cn/teaching/main.htm](https://www.htu.edu.cn/teaching/main.htm)
+及其相关站点
 :::
 
 ::: tip 教务数据
