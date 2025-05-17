@@ -52,11 +52,7 @@ export function onRequest(context) {
     const data = {
         "code": 200,
         "message": "success",
-        "data": notices,
-        "airConditionCookie": {
-            "shiroJID": "295444bf-c1cf-458b-b041-b6cc36f07461",
-            "ymId": "2209553875734609932"
-        }
+        "data": notices
     }
     return new Response(JSON.stringify(data), {
         headers: {
