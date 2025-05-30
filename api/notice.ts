@@ -12,6 +12,14 @@ export default function handler(
 ) {
   const notices = [
     {
+      "id": 2025053001,
+      "time": "2025-5-30 24:00",
+      "title": "新增页面",
+      "content": "新增 AI 助手页面\n你可以在这里使用 AI 助手",
+      "action": "ai_configuration",
+      "type": "SCREEN"
+    },
+    {
       "id": 2025051101,
       "time": "2025-5-11 12:00",
       "title": "新增页面",
@@ -60,13 +68,13 @@ export default function handler(
       "type": "URL"
     }
   ];
-  
+
   const data = {
     "code": 200,
     "message": "success",
     "data": notices
   }
-  
+
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.status(200).json(data);
 }

@@ -20,6 +20,14 @@ export default function handler(
       {
         "name": "教务处",
         "url": "http://jwc.htu.edu.cn/"
+      },
+      {
+        "name": "就业创业信息网",
+        "url": "https://jc.htu.edu.cn/p/page/index.html"
+      },
+      {
+        "name": "就业创业信息网",
+        "url": "https://hackhtu.pages.dev"
       }
     ]
   };

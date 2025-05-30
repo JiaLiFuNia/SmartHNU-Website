@@ -18,7 +18,7 @@ export default async function handler(
   }
 
   const latestVersion = "3.0.9";
-  const latestVersionCode = 202505112;
+  const latestVersionCode = 202505302;
   const isForceUpdate = false; // 是否强制更新
   
   const data = {
