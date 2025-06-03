@@ -19,14 +19,18 @@ export default function handler(
       },
       {
         "name": "教务处",
-        "url": "http://jwc.htu.edu.cn/"
+        "url": "https://www.htu.edu.cn/teaching/main.htm"
+      },
+      {
+        "name": "正版软件管理与服务平台",
+        "url": "https://ms.htu.edu.cn"
       },
       {
         "name": "就业创业信息网",
         "url": "https://jc.htu.edu.cn/p/page/index.html"
       },
       {
-        "name": "就业创业信息网",
+        "name": "河南师范大学工具站",
         "url": "https://hackhtu.pages.dev"
       }
     ]
