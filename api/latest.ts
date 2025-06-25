@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 type ResponseData = {
+  code: number;
   message: string;
   data: any;
 };
@@ -17,7 +18,7 @@ export default async function handler(
   }
 
   const latestVersion = "3.0.9";
-  const latestVersionCode = 202505312;
+  const latestVersionCode = 202506251;
   const isForceUpdate = false; // 是否强制更新
   
   const isNeedUpdate = currentVersionCode < latestVersionCode;
@@ -27,6 +28,7 @@ export default async function handler(
   };
 
   const data = {
+    "code": 200,
     "message": "success",
     "data": {
       "versionName": latestVersion,

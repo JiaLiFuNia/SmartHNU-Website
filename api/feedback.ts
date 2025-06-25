@@ -1,8 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 type ResponseData = {
-  success: boolean;
+  code: number;
   message: string;
+  data: boolean;
 };
 
 export default async function handler(
@@ -10,8 +11,9 @@ export default async function handler(
   res: NextApiResponse<ResponseData>
 ) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ 
-      success: false, 
+    return res.status(405).json({
+      code: 405,
+      data: false, 
       message: 'Method Not Allowed'
     });
   }
@@ -22,7 +24,8 @@ export default async function handler(
   
   if (!message) {
     return res.status(400).json({
-      success: false,
+      code: 400,
+      data: false,
       message: "反馈不能为空"
     });
   }
@@ -48,19 +51,22 @@ export default async function handler(
 
     if (result.ok) {
       return res.status(200).json({
-        success: true,
+        code: 200,
+        data: true,
         message: "提交成功，感谢您的反馈！"
       });
     } else {
       return res.status(500).json({
-        success: false,
+        code: 500,
+        data: false,
         message: "提交失败，请稍后再试"
       });
     }
   } catch (error) {
     console.error('Error sending feedback:', error);
     return res.status(500).json({
-      success: false,
+      code: 500,
+      data: false,
       message: "发送反馈时出错"
     });
   }

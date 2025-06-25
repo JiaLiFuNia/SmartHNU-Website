@@ -15,23 +15,33 @@ export default function handler(
     "website_navigation": [
       {
         "name": "河南师范大学",
-        "url": "https://www.htu.edu.cn/"
+        "url": "https://www.htu.edu.cn/",
+        "description": "河南师范大学官网"
       },
       {
         "name": "教务处",
-        "url": "https://www.htu.edu.cn/teaching/main.htm"
+        "url": "https://www.htu.edu.cn/teaching/main.htm",
+        "description": "河南师范大学教务处"
       },
       {
         "name": "正版软件管理与服务平台",
-        "url": "https://ms.htu.edu.cn"
+        "url": "https://ms.htu.edu.cn",
+        "description": "正版软件管理与服务平台"
       },
       {
         "name": "就业创业信息网",
-        "url": "https://jc.htu.edu.cn/p/page/index.html"
+        "url": "https://jc.htu.edu.cn/p/page/index.html",
+        "description": "河南师范大学就业创业信息网"
       },
       {
         "name": "河南师范大学工具站",
-        "url": "https://hackhtu.pages.dev"
+        "url": "https://hackhtu.pages.dev",
+        "description": "河南师范大学工具站"
+      },
+      {
+        "name": "师大版 DeepSeek",
+        "url": "https://chat.htu.edu.cn/",
+        "description": "师大版 DeepSeek AI 助手"
       }
     ]
   };
