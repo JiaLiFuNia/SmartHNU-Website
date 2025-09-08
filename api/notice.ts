@@ -12,12 +12,12 @@ export default function handler(
 ) {
   const notices = [
     {
-      "id": 2025053001,
-      "time": "2025-5-30 24:00",
-      "title": "新增页面",
-      "content": "新增 AI 助手页面\n你可以在这里使用 AI 助手",
-      "action": "ai_configuration",
-      "type": "SCREEN"
+      "id": 2025090801,
+      "time": "2025-9-8 12:00",
+      "title": "新学期，新气象",
+      "content": "欢迎 25 级新同学",
+      "action": null,
+      "type": "COMMON"
     },
     {
       "id": 2025051101,
@@ -34,22 +34,6 @@ export default function handler(
       "content": "师韵（SmartHNU）v3.0 即将来袭",
       "action": null,
       "type": "COMMON"
-    },
-    {
-      "id": 2025021401,
-      "time": "2025-2-14 22:28",
-      "title": "新增页面",
-      "content": "新增 课程成绩",
-      "action": "grade",
-      "type": "SCREEN"
-    },
-    {
-      "id": 2025021201,
-      "time": "2025-2-12 17:45",
-      "title": "软件通知",
-      "content": "优化 设置页面",
-      "action": "setting",
-      "type": "SCREEN"
     },
     {
       "id": 2025012301,
