@@ -24,7 +24,7 @@ export default async function handler(
   const isNeedUpdate = currentVersionCode < latestVersionCode;
   const update = {
     "downloadUrl": "https://xubohan04.tk/SmartHNU_v3.0.9.1(202509111).apk",
-    "content": "更新内容\n- 新增 统一认证系统登录逻辑\n- 新增 空闲教室可查询增加更多教室\n- 修复 课表日期显示错误的问题",
+    "content": "更新内容\n- 新增 统一认证系统登录逻辑（貌似还是有点问题🤔）\n- 新增 空闲教室可查询增加更多教室\n- 修复 课表日期显示错误的问题",
   };
 
   const data = {
