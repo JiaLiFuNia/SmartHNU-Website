@@ -11,6 +11,22 @@ export default function handler(
   res: NextApiResponse<ResponseData>
 ) {
   const notices = [
+{
+      "id": 2025092901,
+      "time": "2025-9-29 12:00",
+      "title": "调休通知",
+      "content": "10月1日至8日放假调休，共8天。9月28日（星期日）、10月11日（星期六）上班上课。9月28日的教学安排按10月7日(第6周，星期二)课表执行；10月11日的教学安排按10月8日(第6周，星期三)课表执行。",
+      "action": null,
+      "type": "COMMON"
+    },
+{
+      "id": 2025092902,
+      "time": "2025-9-29 12:00",
+      "title": "作息调整",
+      "content": "自10月9日起执行秋季作息时间。",
+      "action": null,
+      "type": "COMMON"
+    },
     {
       "id": 2025090801,
       "time": "2025-9-8 12:00",
