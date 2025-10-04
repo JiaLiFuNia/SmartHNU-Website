@@ -17,14 +17,15 @@ export default async function handler(
     currentVersionCode = requestData.versionCode;
   }
 
-  const latestVersion = "3.0.9.1";
-  const latestVersionCode = 202509111;
+  const latestVersion = "3.0.9.2";
+  const latestVersionCode = 202510041;
   const isForceUpdate = false; // 是否强制更新
   
   const isNeedUpdate = currentVersionCode < latestVersionCode;
+  const latestData = await getLatestVersionBody();
   const update = {
-    "downloadUrl": "https://xubohan04.tk/SmartHNU_v3.0.9.1(202509111).apk",
-    "content": "更新内容\n- 新增 统一认证系统登录逻辑（貌似还是有点问题🤔）\n- 新增 空闲教室可查询增加更多教室\n- 修复 课表日期显示错误的问题",
+    "downloadUrl": "https://xubohan04.tk/SmartHNU_v3.0.9.2(202510041).apk",
+    "content": latestData.body,
   };
 
   const data = {
@@ -41,4 +42,11 @@ export default async function handler(
 
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.status(200).json(data);
+}
+
+async function getLatestVersionBody() {
+  // https://api.github.com/repos/JiaLiFuNia/SmartHNU/releases/latest
+  const response = await fetch('https://api.github.com/repos/JiaLiFuNia/SmartHNU/releases/latest');
+  const responseData = await response.json();
+  return responseData;
 }
