@@ -45,7 +45,6 @@ export default async function handler(
 }
 
 async function getLatestVersionBody() {
-  // https://api.github.com/repos/JiaLiFuNia/SmartHNU/releases/latest
   const response = await fetch('https://api.github.com/repos/JiaLiFuNia/SmartHNU/releases/latest');
   const responseData = await response.json();
   return responseData;
