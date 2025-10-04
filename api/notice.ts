@@ -11,7 +11,7 @@ export default function handler(
   res: NextApiResponse<ResponseData>
 ) {
   const notices = [
-{
+    {
       "id": 2025092901,
       "time": "2025-9-29 12:00",
       "title": "调休通知",
@@ -19,7 +19,7 @@ export default function handler(
       "action": "https://www.htu.edu.cn/2025/0918/c8955a355337/page.htm",
       "type": "URL"
     },
-{
+    {
       "id": 2025092902,
       "time": "2025-9-29 12:00",
       "title": "作息调整",
