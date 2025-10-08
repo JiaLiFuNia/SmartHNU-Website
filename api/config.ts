@@ -42,6 +42,11 @@ export default function handler(
         "name": "师大版 DeepSeek",
         "url": "https://chat.htu.edu.cn/",
         "description": "师大版 DeepSeek AI 助手"
+      },
+      {
+        "name": "修改密码",
+        "url": "https://authserver2.htu.edu.cn/personalInfo/personalMobile/index.html#/setPassword",
+        "description": "i 师大修改密码"
       }
     ]
   };
