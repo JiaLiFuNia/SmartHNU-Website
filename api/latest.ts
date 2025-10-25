@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 type ResponseData = {
   code: number;
   message: string;
-  appVersion: appVersion;
+  data: appVersion;
   captchaModelVersion: captchaModelVersion;
 };
 
@@ -53,7 +53,7 @@ export default async function handler(
   const data = {
     "code": 200,
     "message": "success",
-    "appVersion": {
+    "data": {
       "versionName": latestVersion,
       "versionCode": latestVersionCode,
       "isNeedUpdate": isNeedUpdate,
