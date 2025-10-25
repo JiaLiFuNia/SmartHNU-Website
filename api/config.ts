@@ -3,14 +3,25 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 type ResponseData = {
   code: number;
   message: string;
-  data: any;
+  data: Data;
 };
+
+type WebsiteNavigation = {
+  name: string;
+  url: string;
+  description: string;
+}
+
+type Data = {
+  ac_cookie: string[];
+  website_navigation: WebsiteNavigation[];
+}
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  const data = {
+  const data: Data = {
     "ac_cookie": ["cb1c44f8-f07c-4ccc-8a91-7c898b66eb6f", "2209553875734609932"],
     "website_navigation": [
       {

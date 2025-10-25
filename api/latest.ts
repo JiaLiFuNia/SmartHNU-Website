@@ -17,14 +17,17 @@ export default async function handler(
     currentVersionCode = requestData.versionCode;
   }
 
-  const latestVersion = "3.0.9.2";
-  const latestVersionCode = 202510041;
+  const latestData = await getLatestVersionBody();
+  const latestVersionName = latestData.name.split('_');
+
+  let latestVersion: string = latestVersionName[1] || '';
+  let latestVersionCode: number = parseInt(latestVersionName[2]) || 0;
+
+  const isNeedUpdate = currentVersionCode < latestVersionCode;
   const isForceUpdate = false; // 是否强制更新
   
-  const isNeedUpdate = currentVersionCode < latestVersionCode;
-  const latestData = await getLatestVersionBody();
-  const update = {
-    "downloadUrl": "https://xubohan04.tk/SmartHNU_v3.0.9.2(202510041).apk",
+  const updateContent = {
+    "downloadUrl": latestData.assets[0].browser_download_url,
     "content": latestData.body,
   };
 
@@ -36,7 +39,7 @@ export default async function handler(
       "versionCode": latestVersionCode,
       "isNeedUpdate": isNeedUpdate,
       "isForceUpdate": isForceUpdate,
-      "update": isNeedUpdate ? update : null,
+      "update": isNeedUpdate ? updateContent : null,
     }
   };
 
