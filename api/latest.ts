@@ -63,7 +63,7 @@ export default async function handler(
     "captchaModelVersion": {
       "versionName": latestCaptchaModelData.versionName,
       "versionCode": latestCaptchaModelData.versionCode,
-      "downloadUrl": "https://raw.githubusercontent.com/JiaLiFuNia/SmartHNU/refs/heads/v3/src/captcha-model/captcha.traineddata"
+      "downloadUrl": "https://raw.githubusercontent.com/JiaLiFuNia/SmartHNU/refs/heads/v3/src/captcha.traineddata"
     }
   };
 
