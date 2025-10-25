@@ -39,8 +39,8 @@ export default async function handler(
   const latestCaptchaModelData = await getLatestCaptchaModelBody();
   const latestVersionName = latestData.name.split('_');
 
-  let latestVersion: string = latestVersionName[1] || '';
-  let latestVersionCode: number = parseInt(latestVersionName[2]) || 0;
+  let latestVersion: string = latestVersionName[0] || '';
+  let latestVersionCode: number = parseInt(latestVersionName[1]) || 0;
 
   const isNeedUpdate = currentVersionCode < latestVersionCode;
   const isForceUpdate = false; // 是否强制更新
