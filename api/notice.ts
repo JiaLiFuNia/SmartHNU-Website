@@ -21,6 +21,15 @@ export default function handler(
   res: NextApiResponse<ResponseData>
 ) {
   const notices: NoticeData[] = [
+{
+      "id": 2025112701,
+      "publishTime": "2025-11-27 12:00",
+      "expireTime": "2025-12-27 12:00",
+      "title": "软件通知",
+      "content": "留言板应用接口调整，暂无法获取信息，待后续修复。",
+      "action": null,
+      "type": "COMMON"
+    },
     {
       "id": 2025092901,
       "publishTime": "2025-09-29 12:00",
