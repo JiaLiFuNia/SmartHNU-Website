@@ -73,21 +73,19 @@ onMounted(async () => {
   <p><a href="https://github.com/JiaLiFuNia/SmartHNU/releases/latest" target="_blank">直接访问 GitHub 查看 &rarr;</a></p>
 </div>
 
-<div v-else-if="releaseData">
-
 # 下载 <Badge type="tip">{{ releaseData.name }}</Badge>
 
 * [GitHub Release](https://github.com/JiaLiFuNia/SmartHNU/releases/latest)
+* [Telegram CI Channel](https://t.me/SmartHNU)
 * [123云盘](https://www.123pan.com/s/uyHuVv-dTdjH)
 
 ## 意见反馈
 邮件地址：<xbh0704@outlook.com>
 
 ## 更新日志
-**版本号：** {{ releaseData.name }}  
+**版本号：** {{ releaseData.name }}
 **更新日期：** {{ releaseData.published_at }}
 
-### 更新内容：
 <div class="update-content" v-html="releaseData.body"></div>
 
 </div>

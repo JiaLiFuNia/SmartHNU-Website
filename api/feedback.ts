@@ -6,6 +6,17 @@ type ResponseData = {
   data: boolean;
 };
 
+type FeedbackRequest = {
+  type: string;
+  functionModule: string;
+  message: string;
+  email: string;
+  androidVersion: string;
+  system: string;
+  device: string;
+  versionCode: string;
+};
+
 export default async function handler(
   req: VercelRequest,
   res: VercelResponse
@@ -18,11 +29,11 @@ export default async function handler(
     });
   }
 
-  const { type, functionModule, message, email, androidVersion, system, device, versionCode } = req.body as any;
+  const feedback = req.body as FeedbackRequest;
   
   const api_key = process.env.RESENT;
   
-  if (!message) {
+  if (!feedback.message) {
     return res.status(400).json({
       code: 400,
       data: false,
@@ -40,12 +51,11 @@ export default async function handler(
       body: JSON.stringify({
         from: "SmartHNU_Feedback@resend.dev",
         to: "xbh0704@outlook.com",
-        subject: type,
-        html: `<p><strong>功能模块:</strong> ${functionModule}</p>
-               <p><strong>邮箱:</strong> ${email}</p>
-               <p><strong>设备:</strong> Android ${androidVersion}；${system}；${device}</p>
-               <p><strong>软件版本:</strong> ${versionCode}</p>
-               <p><strong>内容:</strong><br>${message}</p>`
+        subject: feedback.type,
+        html: `<p><strong>邮箱:</strong> ${feedback.email}</p>
+               <p><strong>设备:</strong> Android ${feedback.androidVersion}；${feedback.system}；${feedback.device}</p>
+               <p><strong>软件版本:</strong> ${feedback.versionCode}</p>
+               <p><strong>内容:</strong><br>${feedback.message}</p>`
       })
     });
 
