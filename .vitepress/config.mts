@@ -11,8 +11,8 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '下载', link: '/download' },
-      { text: '致谢', link: '/thanks' },
       { text: '使用指南', link: '/usage' },
+      { text: '致谢', link: '/thanks' },
       { text: '用户协议', link: '/user' }
     ],
 
