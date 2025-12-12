@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 type ResponseData = {
   code: number;
@@ -7,8 +7,8 @@ type ResponseData = {
 };
 
 export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
+  req: VercelRequest,
+  res: VercelResponse
 ) {
   if (req.method !== 'POST') {
     return res.status(405).json({
@@ -18,7 +18,7 @@ export default async function handler(
     });
   }
 
-  const { type, functionModule, message, email, androidVersion, system, device, versionCode } = req.body;
+  const { type, functionModule, message, email, androidVersion, system, device, versionCode } = req.body as any;
   
   const api_key = process.env.RESENT;
   

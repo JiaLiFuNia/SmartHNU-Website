@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 type ResponseData = {
   code: number;
@@ -25,10 +25,10 @@ type captchaModelVersion = {
 };
 
 export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
+  req: VercelRequest,
+  res: VercelResponse
 ) {
-  const requestData = req.body;
+  const requestData = req.body as any;
   var currentVersionCode = 0;
   
   if (requestData !== null && requestData !== undefined) {

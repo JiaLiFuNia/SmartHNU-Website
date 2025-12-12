@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 type ResponseData = {
   code: number;
@@ -17,8 +17,8 @@ type NoticeData = {
 }
 
 export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
+  req: VercelRequest,
+  res: VercelResponse
 ) {
   const notices: NoticeData[] = [
     {

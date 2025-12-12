@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 type ResponseData = {
   code: number;
@@ -7,8 +7,8 @@ type ResponseData = {
 };
 
 export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
+  req: VercelRequest,
+  res: VercelResponse
 ) {
   let dateStr = req.query.date as string;
   

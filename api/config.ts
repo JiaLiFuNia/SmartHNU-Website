@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 type ResponseData = {
   code: number;
@@ -18,8 +18,8 @@ type Data = {
 }
 
 export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
+  req: VercelRequest,
+  res: VercelResponse
 ) {
   const data: Data = {
     "ac_cookie": ["cb1c44f8-f07c-4ccc-8a91-7c898b66eb6f", "2209553875734609932"],
