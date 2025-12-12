@@ -73,6 +73,7 @@ onMounted(async () => {
   <p><a href="https://github.com/JiaLiFuNia/SmartHNU/releases/latest" target="_blank">直接访问 GitHub 查看 &rarr;</a></p>
 </div>
 
+<div v-else-if="releaseData">
 # 下载 <Badge type="tip">{{ releaseData.name }}</Badge>
 
 * [GitHub Release](https://github.com/JiaLiFuNia/SmartHNU/releases/latest)
