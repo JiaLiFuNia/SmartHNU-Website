@@ -6,12 +6,10 @@ import { config } from 'dotenv';
 config({ path: '.env.local' });
 
 // 初始化 Supabase 客户端
-const supabase = process.env.SUPABASE_URL && process.env.SUPABASE_ANON_KEY
-  ? createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY)
-  : null;
-
-// 本地开发使用内存存储
-const localStore = new Map<string, { data: string; expireAt: number }>();
+const supabase = createClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_ANON_KEY!,
+);
 
 // 课表数据类型
 type CourseTable = {
@@ -28,59 +26,38 @@ type ResponseData = {
 // 存储抽象层
 const storage = {
     async set(shareCode: string, courseData: string, expiresIn: number): Promise<void> {
-        if (supabase) {
-            const expiresAt = new Date(Date.now() + expiresIn * 1000);
-            await supabase.from('course_shares').upsert({
-                share_code: shareCode,
-                course_data: courseData,
-                created_at: new Date().toISOString(),
-                expires_at: expiresAt.toISOString()
-            });
-        } else {
-            localStore.set(shareCode, {
-                data: courseData,
-                expireAt: Date.now() + expiresIn * 1000
-            });
-        }
+        const expiresAt = new Date(Date.now() + expiresIn * 1000);
+        await supabase.from('course_shares').upsert({
+            share_code: shareCode,
+            course_data: courseData,
+            created_at: new Date().toISOString(),
+            expires_at: expiresAt.toISOString()
+        });
     },
     async get(shareCode: string): Promise<string | null> {
-        if (supabase) {
-            const { data, error } = await supabase
-                .from('course_shares')
-                .select('course_data, expires_at')
-                .eq('share_code', shareCode)
-                .single();
+        const { data, error } = await supabase
+            .from('course_shares')
+            .select('course_data, expires_at')
+            .eq('share_code', shareCode)
+            .single();
 
-            if (error || !data) return null;
+        if (error || !data) return null;
 
-            // 检查是否过期
-            if (new Date(data.expires_at) < new Date()) {
-                await supabase.from('course_shares').delete().eq('share_code', shareCode);
-                return null;
-            }
-
-            return data.course_data;
-        } else {
-            const item = localStore.get(shareCode);
-            if (!item) return null;
-            if (Date.now() > item.expireAt) {
-                localStore.delete(shareCode);
-                return null;
-            }
-            return item.data;
+        // 检查是否过期
+        if (new Date(data.expires_at) < new Date()) {
+            await supabase.from('course_shares').delete().eq('share_code', shareCode);
+            return null;
         }
+
+        return data.course_data;
     },
     async exists(shareCode: string): Promise<boolean> {
-        if (supabase) {
-            const { data } = await supabase
-                .from('course_shares')
-                .select('share_code')
-                .eq('share_code', shareCode)
-                .single();
-            return !!data;
-        } else {
-            return localStore.has(shareCode);
-        }
+        const { data } = await supabase
+            .from('course_shares')
+            .select('share_code')
+            .eq('share_code', shareCode)
+            .single();
+        return !!data;
     }
 };
 
