@@ -124,7 +124,7 @@ export default async function handler(
             const { courseData } = req.body as { courseData: string };
 
             if (!courseData || typeof courseData !== 'string' || courseData.trim() === '') {
-                return res.status(400).json({
+                return res.status(200).json({
                     code: 400,
                     message: '课表数据不能为空'
                 });
@@ -154,7 +154,7 @@ export default async function handler(
             const { code } = req.query;
 
             if (!code || typeof code !== 'string') {
-                return res.status(400).json({
+                return res.status(200).json({
                     code: 400,
                     message: '共享码不能为空'
                 });
@@ -163,7 +163,7 @@ export default async function handler(
             const data = await storage.get(code.toUpperCase());
 
             if (!data) {
-                return res.status(404).json({
+                return res.status(200).json({
                     code: 404,
                     message: '共享码不存在或已过期'
                 });
@@ -178,14 +178,14 @@ export default async function handler(
             });
         }
 
-        return res.status(405).json({
+        return res.status(200).json({
             code: 405,
             message: '不支持的请求方法'
         });
 
     } catch (error) {
         console.error('Course API Error:', error);
-        return res.status(500).json({
+        return res.status(200).json({
             code: 500,
             message: '服务器错误'
         });
