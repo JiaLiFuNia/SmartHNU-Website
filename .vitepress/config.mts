@@ -7,6 +7,53 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
+  vite: {
+    plugins: [
+      {
+        name: 'pdf-proxy',
+        configureServer(server) {
+          server.middlewares.use((req, res, next) => {
+            if (!req.url?.startsWith('/api/pdf-proxy')) return next();
+            const reqUrl = new URL(req.url, 'http://localhost');
+            const pdfUrl = reqUrl.searchParams.get('url');
+            if (!pdfUrl) {
+              res.writeHead(400, { 'Content-Type': 'application/json' });
+              res.end(JSON.stringify({ error: "Missing 'url' query parameter" }));
+              return;
+            }
+            fetch(pdfUrl, {
+              headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'application/pdf,*/*',
+              },
+              redirect: 'follow',
+            })
+              .then(async (response) => {
+                if (!response.ok) {
+                  res.writeHead(response.status, { 'Content-Type': 'application/json' });
+                  res.end(JSON.stringify({ error: `Failed to fetch PDF: ${response.statusText}` }));
+                  return;
+                }
+                const contentType = response.headers.get('content-type') || 'application/pdf';
+                const headers: Record<string, string> = {
+                  'Content-Type': contentType,
+                  'Access-Control-Allow-Origin': '*',
+                };
+                const contentLength = response.headers.get('content-length');
+                if (contentLength) headers['Content-Length'] = contentLength;
+                const buffer = Buffer.from(await response.arrayBuffer());
+                res.writeHead(200, headers);
+                res.end(buffer);
+              })
+              .catch((err) => {
+                res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Failed to fetch PDF', details: String(err) }));
+              });
+          });
+        },
+      },
+    ],
+  },
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
