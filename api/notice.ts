@@ -22,11 +22,11 @@ export default function handler(
 ) {
   const notices: NoticeData[] = [
     {
-      "id": 2026012901,
-      "publishTime": "2026-01-29 12:00",
-      "expireTime": "2026-02-28 23:59",
-      "title": "新年快乐！",
-      "content": "祝大家新年快乐，学业进步！",
+      "id": 2027070601, 
+      "publishTime": "2026-07-06 00:00",
+      "expireTime": "2026-09-01 00:00",
+      "title": "暑假放假通知",
+      "content": "暑假放假时间为7月6日-9月7日。祝大家假期愉快！",
       "action": null,
       "type": "COMMON"
     }
