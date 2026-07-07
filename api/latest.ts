@@ -36,7 +36,6 @@ export default async function handler(
   }
 
   const latestData = await getLatestVersionBody();
-  const latestCaptchaModelData = await getLatestCaptchaModelBody();
   const latestVersionName = latestData.name.split('_');
 
   let latestVersion: string = latestVersionName[0] || '';
@@ -45,9 +44,15 @@ export default async function handler(
   const isNeedUpdate = currentVersionCode < latestVersionCode;
   const isForceUpdate = false; // 是否强制更新
   
+  const rawBody = latestData.body.replace(/[#\r]/g, '');
+  const bodyLines = rawBody.split('\n');
+  const truncatedBody = bodyLines.length > 10
+    ? bodyLines.slice(0, 10).join('\n') + '\n...\n可前往 GitHub 查看全部日志'
+    : rawBody;
+
   const updateContent = {
     "downloadUrl": latestData.assets[0].browser_download_url,
-    "content": latestData.body,
+    "content": truncatedBody,
   };
 
   const data = {
@@ -59,11 +64,6 @@ export default async function handler(
       "isNeedUpdate": isNeedUpdate,
       "isForceUpdate": isForceUpdate,
       "update": isNeedUpdate ? updateContent : null,
-    },
-    "captchaModelVersion": {
-      "versionName": latestCaptchaModelData.versionName,
-      "versionCode": latestCaptchaModelData.versionCode,
-      "downloadUrl": "https://raw.githubusercontent.com/JiaLiFuNia/SmartHNU/refs/heads/v3/src/captcha.traineddata"
     }
   };
 
@@ -75,10 +75,4 @@ async function getLatestVersionBody() {
   const response = await fetch('https://api.github.com/repos/JiaLiFuNia/SmartHNU/releases/latest');
   const responseData = await response.json();
   return responseData;
-}
-
-async function getLatestCaptchaModelBody() {
-  const response = await fetch('https://raw.githubusercontent.com/JiaLiFuNia/SmartHNU/refs/heads/v3/src/captcha.json');
-  const responseData = await response.text();
-  return JSON.parse(responseData);
 }
