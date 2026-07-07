@@ -64,6 +64,11 @@ export default async function handler(
       "isNeedUpdate": isNeedUpdate,
       "isForceUpdate": isForceUpdate,
       "update": isNeedUpdate ? updateContent : null,
+    },
+    "captchaModelVersion": {
+      "versionName": "v1.0",
+      "versionCode": 101,
+      "downloadUrl": "https://raw.githubusercontent.com/JiaLiFuNia/SmartHNU/refs/heads/v3/src/captcha.traineddata"
     }
   };
 
